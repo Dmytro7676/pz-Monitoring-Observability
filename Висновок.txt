@@ -1,0 +1,182 @@
+# 📊 Practical lesson — Monitoring & Observability
+
+## 🔷 Проєкт: Monitoring & Observability System
+
+---
+
+## 📌 Опис
+
+У цьому проєкті реалізовано базову систему **Monitoring & Observability** для інформаційної системи MEDICORE.
+
+Система включає:
+
+* контейнеризовані сервіси (Docker)
+* збір метрик (Prometheus)
+* візуалізацію (Grafana)
+* алертинг при відмові сервісів
+
+---
+
+## 🧱 Архітектура системи
+
+Система складається з наступних компонентів:
+
+* **Web (Frontend)** — простий веб-інтерфейс
+* **WebAPI (Backend)** — REST API з метриками
+* **MQTT Broker** — обмін повідомленнями
+* **Prometheus** — збір метрик
+* **Grafana** — візуалізація
+* **Docker Compose** — оркестрація
+
+---
+
+## ⚙️ Технології
+
+* Docker / Docker Compose
+* Prometheus
+* Grafana
+* Node.js
+* Mosquitto (MQTT)
+
+---
+
+## 🚀 Запуск проєкту
+
+### 1. Клонування репозиторію
+
+```bash
+git clone <your-repo-url>
+cd pz-Monitoring-Observability
+```
+
+### 2. Запуск контейнерів
+
+```bash
+docker compose up -d
+```
+
+---
+
+## 🌐 Доступ до сервісів
+
+| Сервіс     | URL                          |
+| ---------- | ---------------------------- |
+| Web        | http://localhost:8080        |
+| WebAPI     | http://localhost:3000/health |
+| Prometheus | http://localhost:9090        |
+| Grafana    | http://localhost:3001        |
+
+Grafana login:
+
+```
+admin / Stalker2
+```
+
+---
+
+## 📈 Моніторинг
+
+Prometheus збирає метрики з WebAPI через endpoint:
+
+```
+/metrics
+```
+
+Основна метрика:
+
+```
+http_requests_total
+```
+
+---
+
+## 📊 Дашборд
+
+У Grafana створено дашборд, який відображає:
+
+* кількість HTTP-запитів
+* активність системи в реальному часі
+
+---
+
+## 🚨 Алертинг
+
+Реалізовано alert:
+
+```
+WebAPIDown
+```
+
+### Умова:
+
+```
+up{job="webapi"} == 0
+```
+
+### Логіка:
+
+* якщо WebAPI не відповідає більше 10 секунд
+* генерується alert
+
+---
+
+## 🧪 Тестування відмовостійкості
+
+### Зупинка сервісу:
+
+```bash
+docker compose stop webapi
+```
+
+### Результат:
+
+* Prometheus → статус DOWN
+* Alert → FIRING
+* Grafana → припинення оновлення метрик
+
+---
+
+### Відновлення:
+
+```bash
+docker compose start webapi
+```
+
+---
+
+## 📸 Скріншоти
+
+(додати)
+
+* Grafana dashboard
+* Prometheus targets
+* Prometheus alerts (FIRING)
+
+---
+
+## 🔍 Monitoring vs Observability
+
+| Monitoring         | Observability               |
+| ------------------ | --------------------------- |
+| Відстежує метрики  | Дає розуміння стану системи |
+| Реакція на події   | Аналіз причин               |
+| Статичні показники | Глибокий аналіз             |
+
+---
+
+## 📌 Висновок
+
+У процесі виконання роботи було:
+
+* розгорнуто контейнеризовану систему
+* налаштовано збір метрик
+* реалізовано дашборд
+* додано алертинг
+
+Система демонструє базовий підхід до побудови **надійної та спостережуваної інформаційної системи**.
+
+---
+
+## 👨‍💻 Автор
+
+Dmytro Bulba

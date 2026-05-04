@@ -1,0 +1,10 @@
+groups:
+- name: service-alerts
+  rules:
+  - alert: WebAPIDown
+    expr: up{job="webapi"} == 0
+    for: 10s
+    labels:
+      severity: critical
+    annotations:
+      summary: "WebAPI is down"

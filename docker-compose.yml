@@ -1,0 +1,29 @@
+services:
+
+  web:
+    build: ./services/web
+    ports:
+      - "8080:80"
+
+  webapi:
+    build: ./services/webapi
+    ports:
+      - "3000:3000"
+
+  mqtt:
+    image: eclipse-mosquitto
+    ports:
+      - "1883:1883"
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./monitoring/prometheus/alert.rules.yml:/etc/prometheus/alert.rules.yml
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3001:3000"

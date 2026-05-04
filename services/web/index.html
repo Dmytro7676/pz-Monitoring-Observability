@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Monitoring System</h1>
+<button onclick="check()">Check API</button>
+<p id="status"></p>
+
+<script>
+async function check() {
+  const res = await fetch('http://webapi:3000/health');
+  const data = await res.json();
+  document.getElementById('status').innerText = data.status;
+}
+</script>
+</body>
+</html>
