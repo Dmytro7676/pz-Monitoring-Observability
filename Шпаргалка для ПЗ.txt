@@ -1,0 +1,239 @@
+1.	pz-MQTT — MQTT Broker
+Практична робота з MQTT-протоколом.
+MQTT — легкий мережевий протокол для:
+•	IoT 
+•	сенсорів 
+•	smart home 
+•	publish/subscribe архітектури
+
+Як запускати
+Перехід
+cd C:\Users\dmytr\pz-MQTT\broker
+
+Запуск контейнера
+docker compose up -d
+
+Перевірка
+docker ps
+
+Publish / Subscribe demo
+Subscriber
+docker exec -it mqtt-broker sh
+mosquitto_sub -h localhost -t test/topic
+
+Publisher
+Інше вікно:
+docker exec -it mqtt-broker sh
+mosquitto_pub -h localhost -t test/topic -m "Hello MQTT"
+
+Результат
+Hello MQTT
+
+
+
+
+
+
+
+2.	pz-Monitoring-Observability
+Практична робота по:
+моніторингу
+логуванню
+observability
+Зазвичай там:
+Prometheus
+Grafana
+exporters
+metrics
+
+Як запускати
+Перехід
+cd C:\Users\dmytr\pz-Monitoring-Observability
+
+Запуск
+docker compose up -d
+
+Перевірка
+docker ps
+
+Відкрити Grafana
+Зазвичай:
+http://localhost:3000/metrics
+
+Відкрити Prometheus
+http://localhost:9090
+Запит у Prometheus
+У полі Query введи:
+up
+і натисни Execute.
+
+Що це означає
+Prometheus перевіряє доступність targets.
+
+Як завершити роботу
+docker compose down
+
+Метрика — це числовий показник стану системи або програми.
+Простіше кажучи:
+метрика = цифра, яка показує що зараз відбувається в системі
+
+Приклади метрик
+Навантаження CPU
+CPU usage = 45%
+Показує, наскільки процесор зайнятий.
+
+Використання пам’яті
+RAM usage = 512 MB
+
+Кількість HTTP-запитів
+http_requests_total = 150
+
+Час відповіді сервера
+response_time = 120 ms
+
+3. pz-UML
+
+Що це
+Практична робота з UML-діаграмами.
+
+UML — це
+Мова моделювання систем.
+Використовується для:
+•	проектування 
+•	архітектури 
+•	опису логіки системи 
+
+Основні діаграми
+Use Case
+Показує:
+•	акторів 
+•	сценарії 
+
+Class Diagram
+Показує:
+•	класи 
+•	методи 
+•	зв’язки 
+
+Sequence Diagram
+Показує:
+•	послідовність викликів 
+
+Activity Diagram
+Показує:
+•	бізнес-процеси 
+•	flow логіки 
+
+Як запускати
+Якщо це draw.io / diagrams:
+Просто:
+•	відкриваєш .drawio 
+•	або .png 
+•	або .pdf 
+
+Що пояснювати
+Class Diagram
+•	класи 
+•	inheritance 
+•	composition 
+•	aggregation
+
+Як відкрити ?
+Відкрити з папки REAME в VS code + Ctrl + Shift + V
+
+Якщо не відображає діаграму тре встановити Markdown Preview Mermaid Support  і повторити Ctrl + Shift + V
+4. pz-GOF
+
+Що це
+Практична робота по:
+•	GoF patterns 
+•	Design Patterns 
+GoF = Gang of Four.
+
+Для чого патерни
+Патерни — готові архітектурні рішення.
+
+Основні типи
+Creational
+Створення об’єктів:
+•	Singleton 
+•	Factory 
+•	Builder 
+
+Structural
+Структура:
+•	Adapter 
+•	Facade 
+•	Decorator 
+
+Behavioral
+Поведінка:
+•	Observer 
+•	Strategy 
+•	Command 
+
+Як запускати
+Перехід
+cd C:\Users\dmytr\pz-GOF
+
+Якщо Node.js
+npm install
+
+Запуск
+npm start
+або:
+npm test
+
+
+Було реалізовано патерни проектування GoF для побудови гнучкої та масштабованої архітектури.
+
+
+
+
+
+
+
+
+5. pz-SOLID
+
+Що це
+Практична робота по SOLID-принципах.
+
+Для чого SOLID
+SOLID:
+•	покращує архітектуру 
+•	зменшує зв’язність 
+•	спрощує підтримку 
+
+Принципи
+
+S — Single Responsibility
+Одна відповідальність.
+
+O — Open/Closed
+Відкритий для розширення,
+закритий для змін.
+
+L — Liskov
+Похідний клас має заміняти базовий.
+
+I — Interface Segregation
+Малі інтерфейси краще за великі.
+
+D — Dependency Inversion
+Залежність від абстракцій.
+
+Як запускати
+Перехід
+cd C:\Users\dmytr\pz-SOLID
+
+Встановлення залежностей
+npm install
+
+Запуск тестів
+npm test
+
+Що показати
+PASS
+
+Було виконано рефакторинг коду із застосуванням принципів SOLID та розділенням відповідальностей між компонентами системи.
